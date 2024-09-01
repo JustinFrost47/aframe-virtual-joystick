@@ -1,6 +1,10 @@
-# aframe-joystick
-An aframe component for "wasd"-like motion on mobile.
-Demo here: https://sour-lyric.glitch.me/
+# aframe-virtual-joystick
+
+Big Shout out to Mr turuck for making this component. I've just made minor modifications on top of that
+
+An aframe component for "wasd"-like motion on mobile based on mrturuck's aframe-joystick.
+
+## Readme from mrturuck's Original Repo
 
 Many thanks to [@yoannmoinet](https://github.com/yoannmoinet) for creating [NippleJS](https://github.com/yoannmoinet/nipplejs). This project is 95% NippleJS with a small adaptation for A-Frame
 
