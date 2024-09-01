@@ -12,7 +12,7 @@ Many thanks to [@yoannmoinet](https://github.com/yoannmoinet) for creating [Nipp
 #### Step 1
 You'll need to include the script in your project: 
 ```
-<script src="https://cdn.rawgit.com/mrturck/aframe-joystick/master/joystick.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/JustinFrost47/aframe-virtual-joystick/joystick.min.js"></script>
 ```
 
 #### Step 2
@@ -35,3 +35,4 @@ Do this by adding `vr-mode-ui="enabled: false"` to your `a-scene` element (examp
 <a-scene joystick vr-mode-ui="enabled: false">
 ```
 
+Now, the virtual joystick will be functional if the device registers touch feature or if we are simulating touch using devtools
