@@ -1,6 +1,6 @@
 {
   "name": "aframe-virtual-joystick",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A virtual joystick component for A-Frame, enabling touch-based movement",
   "main": "dist/aframe-virtual-joystick.js",
   "scripts": {
@@ -11,6 +11,11 @@
   ],
   "author": "JustinFrost47",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JustinFrost47/aframe-virtual-joystick"
+  },
+  "homepage": "https://github.com/JustinFrost47/aframe-virtual-joystick#readme",
   "dependencies": {
     "aframe": "^1.6.0",
     "nipplejs": "^0.10.2"
