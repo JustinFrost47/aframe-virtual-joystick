@@ -1,12 +1,19 @@
-// Import NippleJS (ensure you add it as a dependency in package.json)
+// Import NippleJS
 import nipplejs from 'nipplejs';
 
-const joystickAreaStyle = "position:fixed;display:block;width:50%;height:100%;left:0px;bottom:0px;background-color:rgba(0,0,0,0);z-index:20;";
-const textOverlayStyle = "position:fixed;bottom:0px; left:0px;margin-top:99%;font-size:12px Roboto; opacity:.3;";
-const speedCoeff = 50
+// Define default values
+const defaultJoystickAreaStyle = "position:fixed;display:block;width:50%;height:100%;left:0px;bottom:0px;background-color:rgba(0,0,0,0);z-index:20;";
+const defaultTextOverlayStyle = "position:fixed;bottom:0px; left:0px;margin-top:99%;font-size:12px Roboto; opacity:.3;";
+const defaultTextContent = "";
+const defaultSpeedCoeff = 50;
 
-function initJoystick() {
-  // Create joystick area element
+let moveData = "";
+
+
+
+// Joystick initialization function
+function createJoystick(joystickAreaStyle, textOverlayStyle, textContent, speedCoeff) {
+  // Initialize joystick area element
   const d = document.createElement("div");
   d.setAttribute("id", "np");
   d.setAttribute("style", joystickAreaStyle);
@@ -15,36 +22,32 @@ function initJoystick() {
   // Create text overlay
   const p = document.createElement("p");
   p.setAttribute("style", textOverlayStyle);
-  p.textContent = "Drag on Left to move, Right to look around";
+  p.textContent = textContent;
   d.appendChild(p);
-}
-
-let moveData = "";
-
-function createJoystick() {
-  initJoystick();
 
   const options = {
     mode: 'dynamic',
-    zone: document.getElementById('np'),
+    zone: d,
     color: "#0F0000",
     fadeTime: 10,
   };
 
   const manager = nipplejs.create(options);
   bindNipple(manager);
-
-  function bindNipple(manager) {
-    manager.on('move', (evt, data) => {
-      moveData = data;
-    });
-    manager.on('end', () => {
-      moveData = "";
-    });
-  }
 }
 
-function updatePosition(data) {
+// Bind NippleJS events
+function bindNipple(manager) {
+  manager.on('move', (evt, data) => {
+    moveData = data;
+  });
+  manager.on('end', () => {
+    moveData = "";
+  });
+}
+
+// Update camera position based on joystick input
+function updatePosition(data, speedCoeff) {
   const f = data.force;
   const ang = data.angle.radian;
   const cam = document.getElementById("camera");
@@ -59,19 +62,34 @@ function updatePosition(data) {
   cam.setAttribute("position", `${x} ${y} ${z}`);
 }
 
-// Export the A-Frame component
+
 export default AFRAME.registerComponent('joystick', {
-  init: function() {
-    console.log("aframe-virtual-joystick initialized")
-    if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
-      createJoystick();
-    } else {
-      console.log("Touch is not available");
+    schema: {
+      joystickAreaStyle: { type: 'string', default: defaultJoystickAreaStyle },
+      textOverlayStyle: { type: 'string', default: defaultTextOverlayStyle },
+      textContent: { type: 'string', default: defaultTextContent },
+      speedCoeff: { type: 'number', default: defaultSpeedCoeff }
+    },
+  
+    init: function() {
+      console.log("aframe-virtual-joystick initialized");
+  
+      // Create joystick area
+      const joystickAreaStyle = this.data.joystickAreaStyle;
+      const textOverlayStyle = this.data.textOverlayStyle;
+      const textContent = this.data.textContent;
+      const speedCoeff = this.data.speedCoeff;
+  
+      if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+        createJoystick(joystickAreaStyle, textOverlayStyle, textContent, speedCoeff);
+      } else {
+        console.log("Touch is not available");
+      }
+    },
+  
+    tick: function() {
+      if (moveData) {
+        updatePosition(moveData, this.data.speedCoeff);
+      }
     }
-  },
-  tick: function() {
-    if (moveData) {
-      updatePosition(moveData);
-    }
-  },
-});
+  });
