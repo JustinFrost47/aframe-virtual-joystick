@@ -10,6 +10,13 @@ Install the package via npm:
 ```bash
 npm install aframe-virtual-joystick
 ```
+or
+
+include cdn package link to your html file
+
+```javascript
+<script src="https://cdn.jsdelivr.net/npm/aframe-virtual-joystick/dist/aframe-virtual-joystick.js"></script>
+```
 
 Then, import the package into your A-Frame project:
 
