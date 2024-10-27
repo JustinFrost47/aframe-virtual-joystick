@@ -39,7 +39,7 @@ To use the `joystick` component in your A-Frame scene, add it as a component to 
 This makes the virtual joystick follow the default behaviour. The left half of the touch screen will be reserved for movement like most modern games do
 
 
-### Example-1 (Custom Parameters):
+### Example-2 (Custom Parameters):
 
 ```html
 <a-scene>
