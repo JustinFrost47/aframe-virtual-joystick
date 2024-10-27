@@ -1,6 +1,6 @@
 {
   "name": "aframe-virtual-joystick",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "A virtual joystick component for A-Frame, enabling touch-based movement",
   "main": "dist/aframe-virtual-joystick.js",
   "scripts": {
@@ -27,5 +27,9 @@
     "babel-loader": "^9.2.1",
     "webpack": "^5.95.0",
     "webpack-cli": "^5.1.4"
-  }
+  },
+  "overrides": {
+  "got": "^14.4.3"
+}
+
 }
