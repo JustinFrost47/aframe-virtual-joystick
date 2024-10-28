@@ -71,7 +71,7 @@ The `joystick` component supports various parameters for customization. You can 
 
 ### Available Parameters
 
-- **`joystickAreaStyle`**: Customize the joystick area with CSS. Control the dimensions, position, background, and appearance of the joystick. For example: 
+- **`joystickAreaStyle`**: Customize the joystick area with CSS. Control the dimensions, position, background, and appearance of the joystick. Dragging on this area will trigger the movement joystick For example: 
   ```
   "position:fixed; display:block; width:40%; height:100%; left:10px; bottom:10px; background-color:rgba(255,255,255,0.1); z-index:20;"
   ```
@@ -94,11 +94,15 @@ The `joystick` component supports various parameters for customization. You can 
   ```
   "position:fixed; display:block; width:50%; height:100%; left:0px; bottom:0px; background-color:rgba(0,0,0,0); z-index:20;"
   ```
+
+  by default the left half of the screen is reserved as joystickArea
   
 - **`textOverlayStyle`** (string): 
   ```
   "position:fixed; bottom:0px; left:0px; margin-top:99%; font-size:12px Roboto; opacity:.3;"
   ```
+
+  it is supposed to be shown on the bottom region
   
 - **`textContent`** (string): `""` (no text by default)
   
