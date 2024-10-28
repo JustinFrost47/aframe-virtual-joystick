@@ -1,12 +1,12 @@
 {
   "name": "aframe-virtual-joystick",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "lockfileVersion": 3,
   "requires": true,
   "packages": {
     "": {
       "name": "aframe-virtual-joystick",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "license": "MIT",
       "dependencies": {
         "aframe": "^1.6.0",
