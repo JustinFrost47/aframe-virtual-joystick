@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/JustinFrost47/aframe-virtual-joystick#readme",
   "dependencies": {
-    "aframe": "^1.6.0",
+    "aframe": "^1.7.1",
     "nipplejs": "^0.10.2"
   },
   "devDependencies": {
@@ -29,7 +29,6 @@
     "webpack-cli": "^5.1.4"
   },
   "overrides": {
-  "got": "^14.4.3"
-}
-
+    "got": "^14.4.3"
+  }
 }
